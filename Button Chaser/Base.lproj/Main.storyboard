@@ -5,7 +5,51 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings View Controller-->
+        <scene sceneID="qG4-uT-GHk">
+            <objects>
+                <viewController id="cpv-Uw-jsw" customClass="SettingsViewController" customModule="Button_Chaser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mot-i0-cJr"/>
+                        <viewControllerLayoutGuide type="bottom" id="a92-yP-VhO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W6v-UU-2jw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="Mv6-EE-fcN" kind="custom" identifier="toButtonChange" customClass="CustomSegue" customModule="Button_Chaser" customModuleProvider="target" id="vbp-43-UmE"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="toGameFromSettings" customClass="CustomSegue" customModule="Button_Chaser" customModuleProvider="target" id="tV0-d1-HDD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RsY-Tl-TQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="210" y="464"/>
+        </scene>
+        <!--Button View Controller-->
+        <scene sceneID="vi7-d3-F24">
+            <objects>
+                <viewController id="Mv6-EE-fcN" customClass="ButtonViewController" customModule="Button_Chaser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p52-xt-D4i"/>
+                        <viewControllerLayoutGuide type="bottom" id="iq1-7I-DOE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="spk-cm-EkE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.61537963110469862" green="0.62352664205262121" blue="0.63833648989898983" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="cpv-Uw-jsw" kind="custom" identifier="toSettingsFromButton" customClass="CustomSegue" customModule="Button_Chaser" customModuleProvider="target" id="NYc-xr-qfG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ppq-zq-Q6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908" y="464"/>
+        </scene>
+        <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Button_Chaser" customModuleProvider="target" sceneMemberID="viewController">
@@ -13,14 +57,30 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="View">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yvR-C8-dfg" appends="YES" id="VO4-FL-Cv5"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <segue destination="cpv-Uw-jsw" kind="custom" identifier="toSettingsFromGame" customClass="CustomSegue" customModule="Button_Chaser" customModuleProvider="target" id="iTo-Ye-uPx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yvR-C8-dfg">
+                    <connections>
+                        <action selector="decrementScore:" destination="BYZ-38-t0r" id="m53-LL-VYa"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="-462" y="464"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iTo-Ye-uPx"/>
+    </inferredMetricsTieBreakers>
 </document>
